@@ -1,0 +1,241 @@
+<div fxLayout="column" fxFlex>
+  <div>
+    <tc-tibco-cloud-menu-bar [toolbarButtons]="toolbarButtons" [headerText]="title"
+                             (toolbarButtonEvent)="handleToolbarButtonEvent($event)">
+      <div>
+        <ng-content select="[customToolbarContent]" fxFlex></ng-content>
+      </div>
+    </tc-tibco-cloud-menu-bar>
+  </div>
+  <div class="tcs-home-content" fxLayout="column" fxFlex="grow" fxLayoutAlign="start stretch"
+       style="padding-left: 20px; padding-right: 20px; margin-top: 10px;">
+    <div fxFlex="grow" style="margin-bottom: 20px; overflow: auto; min-height: 400px; max-height: 75vh;"
+         fxLayoutGap="20px" fxLayout="row" fxLayout.lt-md="column">
+      <div fxFlex.gt-sm="grow" fxLayout="row" style="height: 100%;" [ngStyle.lt-md]="'min-height: 400px;'">
+
+
+        <div class="recentCasesWidget" fxFill>
+          <div class="tcs-pane" fxFill fxLayout="column">
+            <div class="tcs-header" fxLayout="row" fxLayoutAlign="space-between center">
+              <div fxLayoutAlign="start center">
+                <mat-icon class="tcs-icon tcs-active-case-widget-icon" svgIcon="ic-active-case-widget-icon"></mat-icon>
+                <div class="tcs-header-text">TIBCO Cloud Spotfire - TCSTKSPOTFIRETEMPLATE</div>
+              </div>
+            </div>
+
+
+            <!-- Either use the spotfire component direclty, like the followin example: -->
+            <!--
+            <tcsf-spotfire-wrapper  style="width: 100%; height: 100%;" [url]="'https://spotfire-next.cloud.tibco.com'"
+                                    [path]="'/Users/gozvbddiuoigki7yyogn6yywmiijdy2r/Public/Expense Analyzer Dashboard'"
+                                    [customization]='{"showAbout": showAuthor,
+                                                  "showAnalysisInformationTool": false,
+                                                  "showAuthor": false,
+                                                  "showClose": false,
+                                                  "showCustomizableHeader": false,
+                                                  "showDodPanel": false,
+                                                  "showExportFile": false,
+                                                  "showExportVisualization": false,
+                                                  "showFilterPanel": false,
+                                                  "showHelp": true,
+                                                  "showLogout": false,
+                                                  "showPageNavigation": false,
+                                                  "showAnalysisInfo": false,
+                                                  "showReloadAnalysis": false,
+                                                  "showStatusBar": false,
+                                                  "showToolBar": showAuthor,
+                                                  "showUndoRedo": false}'
+                                    [markingOn]="'*'"
+                                    (markingEvent)="marking($event);"
+                                    [maxRows]='1000'
+                                    id="id1">
+            </tcsf-spotfire-wrapper>
+            -->
+
+            <!-- Or use a container so the values can be adjusted in runtime -->
+            <div style="width: 100%; height: 100%;">
+              <template #spotfireContainer></template>
+            </div>
+          </div>
+          <!--
+          <tcla-live-apps-recent-cases class="padded-widget" [showHeader]="true" [sandboxId]="sandboxId" [uiAppId]="uiAppId" (clickCase)="clickCaseAction($event)"></tcla-live-apps-recent-cases>
+          -->
+        </div>
+
+      </div>
+      <div fxFlex.gt-sm="40" fxLayout="column" [ngStyle.lt-md]="'min-height: 400px'">
+        <div style="padding-top: 0px; height: 100%;">
+          <!--
+          <tcla-live-apps-active-cases-widget [sandboxId]="sandboxId" [appIds]="appIds" [showHeader]="true" [showPercentages]="true" [uiAppId]="uiAppId" (selectedCaseTypeState)="handleReportCaseTypeStateSelection($event)" (selectedCaseType)="handleReportCaseTypeSelection($event)"></tcla-live-apps-active-cases-widget>
+          -->
+          <div class="tcs-pane" fxFill fxLayout="column" style="overflow-y: scroll;">
+            <div class="tcs-header" fxLayout="row" fxLayoutAlign="space-between center">
+              <div fxLayoutAlign="start center">
+                <mat-icon class="tcs-icon tcs-active-case-widget-icon" svgIcon="ic-active-case-widget-icon"></mat-icon>
+                <div class="tcs-header-text">Spotfire Settings</div>
+              </div>
+            </div>
+            <mat-card>
+              <mat-card-content>
+                <h2 class="sfsettings-h2">Configuration</h2>
+                <hr>
+                <section class="sfsettings-form">
+                  <mat-form-field class="sfsettings-full-width">
+
+                    <input matInput placeholder="Spotfire Server" [(ngModel)]="sfServer"
+                           (change)="selectionChanged($event)">
+                  </mat-form-field>
+
+                  <h3 class="sfsettings-h3">Select Example Analysis</h3>
+                  <mat-select [(ngModel)]="sfAnalysis" (selectionChange)="selectionChanged($event)">
+                    <mat-option *ngFor="let sfD of sfDemos" [value]="sfD.location">
+                      {{sfD.display}}
+                    </mat-option>
+                  </mat-select>
+
+                  <mat-form-field class="sfsettings-full-width">
+                    <textarea matInput placeholder="Analysis" [(ngModel)]="sfAnalysis"
+                              (change)="selectionChanged($event)"></textarea>
+                  </mat-form-field>
+                </section>
+
+                <mat-grid-list cols="3" rowHeight="4:1">
+                  <mat-grid-tile>
+                    <div class="text-inside-grid">
+                      <mat-checkbox class="sfsettings-margin" [(ngModel)]="sfCustom.showAuthor"
+                                    (change)="selectionChanged($event)">Show Author
+                      </mat-checkbox>
+                    </div>
+                  </mat-grid-tile>
+                  <mat-grid-tile>
+                    <div class="text-inside-grid">
+                      <mat-checkbox class="sfsettings-margin" [(ngModel)]="sfCustom.showAbout"
+                                    (change)="selectionChanged($event)">Show About
+                      </mat-checkbox>
+                    </div>
+                  </mat-grid-tile>
+                  <mat-grid-tile>
+                    <div class="text-inside-grid">
+                      <mat-checkbox class="sfsettings-margin" [(ngModel)]="sfCustom.showAnalysisInformationTool"
+                                    (change)="selectionChanged($event)">Show Analysis Information Tool
+                      </mat-checkbox>
+                    </div>
+                  </mat-grid-tile>
+                  <mat-grid-tile>
+                    <div class="text-inside-grid">
+                      <mat-checkbox class="sfsettings-margin" [(ngModel)]="sfCustom.showClose"
+                                    (change)="selectionChanged($event)">Show Close
+                      </mat-checkbox>
+                    </div>
+                  </mat-grid-tile>
+                  <mat-grid-tile>
+                    <div class="text-inside-grid">
+                      <mat-checkbox class="sfsettings-margin" [(ngModel)]="sfCustom.showCustomizableHeader"
+                                    (change)="selectionChanged($event)">Show Customizable Header
+                      </mat-checkbox>
+                    </div>
+                  </mat-grid-tile>
+                  <mat-grid-tile>
+                    <div class="text-inside-grid">
+                      <mat-checkbox class="sfsettings-margin" [(ngModel)]="sfCustom.showDodPanel"
+                                    (change)="selectionChanged($event)">Show Dod Panel
+                      </mat-checkbox>
+                    </div>
+                  </mat-grid-tile>
+                  <mat-grid-tile>
+                    <div class="text-inside-grid">
+                      <mat-checkbox class="sfsettings-margin" [(ngModel)]="sfCustom.showExportFile"
+                                    (change)="selectionChanged($event)">Show Export File
+                      </mat-checkbox>
+                    </div>
+                  </mat-grid-tile>
+                  <mat-grid-tile>
+                    <div class="text-inside-grid">
+                      <mat-checkbox class="mat-checkbox-layout" [(ngModel)]="sfCustom.showExportVisualization"
+                                    (change)="selectionChanged($event)">Show Export Visualization
+                      </mat-checkbox>
+                    </div>
+                  </mat-grid-tile>
+                  <mat-grid-tile>
+                    <div class="text-inside-grid">
+                      <mat-checkbox class="sfsettings-margin" [(ngModel)]="sfCustom.showFilterPanel"
+                                    (change)="selectionChanged($event)">Show Filter Panel
+                      </mat-checkbox>
+                    </div>
+                  </mat-grid-tile>
+                  <mat-grid-tile>
+                    <div class="text-inside-grid">
+                      <mat-checkbox class="sfsettings-margin" [(ngModel)]="sfCustom.showHelp"
+                                    (change)="selectionChanged($event)">Show Help
+                      </mat-checkbox>
+                    </div>
+                  </mat-grid-tile>
+                  <mat-grid-tile>
+                    <div class="text-inside-grid">
+                      <mat-checkbox class="sfsettings-margin" [(ngModel)]="sfCustom.showLogout"
+                                    (change)="selectionChanged($event)">Show Logout
+                      </mat-checkbox>
+                    </div>
+                  </mat-grid-tile>
+                  <mat-grid-tile>
+                    <div class="text-inside-grid">
+                      <mat-checkbox class="sfsettings-margin" [(ngModel)]="sfCustom.showPageNavigation"
+                                    (change)="selectionChanged($event)">Show Page Navigation
+                      </mat-checkbox>
+                    </div>
+                  </mat-grid-tile>
+                  <mat-grid-tile>
+                    <div class="text-inside-grid">
+                      <mat-checkbox class="sfsettings-margin" [(ngModel)]="sfCustom.showAnalysisInfo"
+                                    (change)="selectionChanged($event)">Show Analysis Info
+                      </mat-checkbox>
+                    </div>
+                  </mat-grid-tile>
+                  <mat-grid-tile>
+                    <div class="text-inside-grid">
+                      <mat-checkbox class="sfsettings-margin" [(ngModel)]="sfCustom.showReloadAnalysis"
+                                    (change)="selectionChanged($event)">Show Reload Analysis
+                      </mat-checkbox>
+                    </div>
+                  </mat-grid-tile>
+                  <mat-grid-tile>
+                    <div class="text-inside-grid">
+                      <mat-checkbox class="sfsettings-margin" [(ngModel)]="sfCustom.showStatusBar"
+                                    (change)="selectionChanged($event)">Show Status Bar
+                      </mat-checkbox>
+                    </div>
+                  </mat-grid-tile>
+                  <mat-grid-tile>
+                    <div class="text-inside-grid">
+                      <mat-checkbox class="sfsettings-margin" [(ngModel)]="sfCustom.showToolBar"
+                                    (change)="selectionChanged($event)">Show Tool Bar
+                      </mat-checkbox>
+                    </div>
+                  </mat-grid-tile>
+                  <mat-grid-tile>
+                    <div class="text-inside-grid">
+                      <mat-checkbox class="sfsettings-margin" [(ngModel)]="sfCustom.showUndoRedo"
+                                    (change)="selectionChanged($event)">Show Undo Redo
+                      </mat-checkbox>
+                    </div>
+                  </mat-grid-tile>
+                  <mat-grid-tile>
+                    <div class="text-inside-grid">
+                      <!-- TODO: multiline in hover -->
+                      <button matTooltip="{{getJSON()}}}" matTooltipClass="test" mat-button (click)="showJSON()">Show
+                        JSON
+                      </button>
+                    </div>
+                  </mat-grid-tile>
+                </mat-grid-list>
+
+
+              </mat-card-content>
+            </mat-card>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

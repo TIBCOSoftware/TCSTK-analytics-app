@@ -1,0 +1,151 @@
+.tc-home-welcome-text {
+  font-family: Source Sans Pro;
+  font-size: 30px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #212121;
+}
+
+.tcs-home-content {
+  overflow: auto;
+}
+
+.tcs-header {
+  height: 40px;
+  border-radius: 3px 3px 0px 0px;
+  box-shadow: 0 1px 2px 0 #dedede;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.tcs-header-text {
+  font-family: Source Sans Pro;
+  font-size: 18px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.5;
+  letter-spacing: 0.3px;
+  text-align: left;
+  color: black;
+  margin-left: 10px;
+}
+
+.tcs-pane {
+  border-radius: 3px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.33);
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.tcs-panc-content {
+  margin: 10px;
+}
+
+.middle {
+  background-color: #FFFFFF;
+  width: 600px;
+  text-align: center;
+  height: 300px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.back {
+  background-color: #FFFFFF;
+  width: 100%;
+  height: 100%;
+}
+
+
+.sfsettings-h2 {
+  margin: 10px;
+}
+
+.sfsettings-h3 {
+  margin: 6px;
+}
+
+.sfsettings-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.sfsettings-margin {
+  margin: 0 10px;
+  text-align: left;
+  text-wrap: normal;
+}
+
+.sfsettings-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.sfsettings-full-width {
+  width: 100%;
+}
+
+::ng-deep .test {
+  white-space: pre-line;
+  font-size: 13px;
+}
+md-tooltip .md-content {
+  height: auto;
+}
+md-tooltip.tt-multiline .md-content {
+  height: auto;
+}
+md-tooltip ._md-content {
+  height: auto;
+}
+md-tooltip.tt-multiline ._md-content {
+  height: auto;
+}
+
+.deploy-rule {
+  width: 117px;
+  height: 40px;
+  border-radius: 3px;
+  background-color: #349bed;
+  border: solid 1px #349bed;
+  margin-bottom: 58px;
+  font-family: Source Sans Pro;
+  font-size: 16px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.3px;
+  text-align: center;
+  color: #ffffff;
+}
+.deploy-rule:hover{
+  border: solid 1px #74bee4;
+  background-color: #74bee4;
+}
+
+mat-grid-tile {
+  background: rgba(0,0,0,.03);
+  text-align: left;
+}
+
+.text-inside-grid {
+  position: absolute;
+  left: 5px;
+  text-wrap: normal;
+  overflow-wrap: break-word;
+  flex-wrap: wrap;
+  white-space: normal !important;
+}
+
+.mat-checkbox-layout {
+  white-space: normal !important;
+}

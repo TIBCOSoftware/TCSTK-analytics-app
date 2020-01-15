@@ -1,0 +1,11 @@
+{
+    "spotfireServer": "",
+    "analysisPath": "",
+    "tableName": "",
+    "activePageForHome": "",
+    "activePageForDetails": "",
+    "markingName": "",
+    "maxMarkings": 20,
+    "allowedPages":  [],
+    "columnNames": []
+}
