@@ -78,9 +78,10 @@
 }
 
 .sfsettings-margin {
-  margin: 0 10px;
+  margin: 0 4px;
   text-align: left;
   text-wrap: normal;
+  font-size: 11px;
 }
 
 .sfsettings-form {

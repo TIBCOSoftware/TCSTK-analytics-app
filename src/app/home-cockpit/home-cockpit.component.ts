@@ -104,6 +104,8 @@ export class HomeCockpitComponent extends LiveAppsHomeCockpitComponent implement
   @ViewChild("spotfireContainer", {read: ViewContainerRef, static: false}) container;
   componentRef: ComponentRef<SfContainerComponent>;
 
+  selectedMarking = '';
+
   ngOnInit() {
     //super.ngOnInit();
     //this.upDateSFComponent();
@@ -171,10 +173,15 @@ export class HomeCockpitComponent extends LiveAppsHomeCockpitComponent implement
     this.componentRef.instance.sfAnalysis = this.sfAnalysis;
     this.componentRef.instance.sfMarkingOn = this.sfMarkingOn;
     this.componentRef.instance.sfMarkingMaxRows = this.sfMarkingMaxRows;
+    //this.componentRef.instance.outputMarking
     //TODO: Add Marking
 
     this.sfCustomString = JSON.stringify(this.sfCustom);
-    this.componentRef.instance.output.subscribe(event => console.log(event));
+    this.componentRef.instance.markingEvent.subscribe(event => {
+      console.log('GOT',  event);
+      this.selectedMarking = JSON.stringify(event);
+
+    });
   }
 
   showJSON(){

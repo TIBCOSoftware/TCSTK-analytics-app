@@ -35,7 +35,13 @@ export class SfContainerComponent {
   @Input() sfMarkingMaxRows;
 
 
-  @Output() output = new EventEmitter();
+  @Output() outputMarking;
+  @Output() markingEvent = new EventEmitter();
 
+  marking(event){
+    console.log('Marking: ' , event);
+    this.outputMarking = event;
+    this.markingEvent.emit(this.outputMarking);
+  }
 
 }

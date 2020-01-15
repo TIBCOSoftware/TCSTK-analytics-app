@@ -99,7 +99,7 @@
                   </mat-form-field>
                 </section>
 
-                <mat-grid-list cols="3" rowHeight="4:1">
+                <mat-grid-list cols="3" rowHeight="8:1">
                   <mat-grid-tile>
                     <div class="text-inside-grid">
                       <mat-checkbox class="sfsettings-margin" [(ngModel)]="sfCustom.showAuthor"
@@ -151,7 +151,7 @@
                   </mat-grid-tile>
                   <mat-grid-tile>
                     <div class="text-inside-grid">
-                      <mat-checkbox class="mat-checkbox-layout" [(ngModel)]="sfCustom.showExportVisualization"
+                      <mat-checkbox class="sfsettings-margin" [(ngModel)]="sfCustom.showExportVisualization"
                                     (change)="selectionChanged($event)">Show Export Visualization
                       </mat-checkbox>
                     </div>
@@ -228,8 +228,9 @@
                     </div>
                   </mat-grid-tile>
                 </mat-grid-list>
-
-
+                <hr>
+                <h2 class="sfsettings-h2">Markings</h2>
+                <textarea matInput style="min-height: 200px ">{{selectedMarking}}</textarea>
               </mat-card-content>
             </mat-card>
 
