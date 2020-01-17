@@ -6,8 +6,8 @@ The Pattern application **Analytics App**, contains the essentials to open a Spo
 ![alt-text](docs/img/analytics-app.png "Image")
 
 **Note**<br>
-This Pattern App is using some Services Offerings of the TIBCO Cloud LiveApps Subscription, e.g. Shared State to store Application Configurations.
-Also if the App should be hosted on TIBCO Cloud, a TIBCO Cloud LiveApps Subscription is needed to upload the App to the Web Resource Provisioning Service.
+This Pattern App is using some Services Offerings of the TIBCO Cloud™ LiveApps Subscription, e.g. Shared State to store Application Configurations.
+Also if the App should be hosted on TIBCO Cloud™, a TIBCO Cloud™ LiveApps Subscription is needed to upload the App to the Web Resource Provisioning Service.
 
 # License
 Copyright © 2020. TIBCO Software Inc.<br>
