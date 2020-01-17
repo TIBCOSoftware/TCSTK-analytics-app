@@ -1,55 +1,16 @@
-### TIBCO Cloud™ Starters Toolkit - TCSTKSPOTFIRETEMPLATE App
-TIBCO Cloud™ TCSTKSPOTFIRETEMPLATE App, containing all core and essentials to create your own cloud starter.
+### Starters Toolkit for TIBCO Cloud™ - Analytics App
+TCSTK Pattern - Analytics App, is a sample that just connects TIBCO Cloud™ Spotfire.
 
-**Splash Screen**
+The Pattern application **Analytics App**, contains the essentials to open a Spotfire Dashbord and take action. It is based on the Spotfire Implemenation stored here, and known as [Spotfire Wrapper](https://github.com/TIBCOSoftware/spotfire-wrapper).
 
-Welcome and Application Overview, fully use case specific adjustable.
+![alt-text](docs/img/analytics-app.png "Image")
 
-![alt-text](docs/img/cm-app1.png "Image")
+**Note**<br>
+This Pattern App is using some Services Offerings of the TIBCO Cloud LiveApps Subscription, e.g. Shared State to store Application Configurations.
+Also if the App should be hosted on TIBCO Cloud, a TIBCO Cloud LiveApps Subscription is needed to upload the App to the Web Resource Provisioning Service.
 
-### Videos 
-a quick first video, to get an impression.
+# License
+Copyright © 2020. TIBCO Software Inc.<br>
+This file is subject to the license terms contained in the license file that is distributed with this file.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/x9qW8HhH-mM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-Link: [YouTube](https://youtu.be/x9qW8HhH-mM) ~2 min
-
-### Help / How to 
-#### Get Started 
-some quicks way to get started
-
-- [Getting Started](docs/tutorials/001-Get-your-ClientID.md)
-- [Configure](docs/tutorials/002-Configure.md)
-
-#### Configure 
-how to configure the App
-
-- [UI App ID](src/assets/config/uiAppId.md)
-- [general App Configuration](src/assets/config/generalAppConfig.md) 
-- [configuration Menu Configuration](src/assets/config/configurationMenuConfig.md)
-- [route Access Control](src/assets/config/routeAccessControl.md)
-- [Custom Forms](src/assets/config/customForms.md) 
-
-> All Configuration JSON Files can be found in "src/assets/config".
-
-#### Basic Developer
-dome basic Developer focused Details 
-
-- [Basic Developer Use Cases](docs/tutorials/003-Basic-Developer.md)
-
-#### Deploy 
-how to deploy the App
-
-- [Deploy Usecase](docs/tutorials/004-Deployment.md)
-
-#### Advanced Developer
-more advanced Details
-
-- [Advanced Developer Use Cases](docs/tutorials/005-Advanced-Developer.md)
-
-## License
-Copyright © 2019. TIBCO Software Inc.
-This file is subject to the license terms contained
-in the license file that is distributed with this file.
-
-Please see 'tpc.txt' for details of license and dependent third party components referenced by this library.
+Please see tpc.txt for details of license and dependent third party components referenced by this library.
