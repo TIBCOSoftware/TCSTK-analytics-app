@@ -221,8 +221,7 @@
                   </mat-grid-tile>
                   <mat-grid-tile>
                     <div class="text-inside-grid">
-                      <!-- TODO: multiline in hover -->
-                      <button matTooltip="{{getJSON()}}}" matTooltipClass="test" mat-button (click)="showJSON()">Show
+                      <button [matTooltip]="getJSON()" matTooltipClass="test" mat-button (click)="showJSON()">Show
                         JSON
                       </button>
                     </div>

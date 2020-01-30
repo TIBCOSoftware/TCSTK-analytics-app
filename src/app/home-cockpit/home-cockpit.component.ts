@@ -17,9 +17,9 @@ import {
   RouteAccessControlConfigurationElement
 } from '@tibco-tcstk/tc-liveapps-lib';
 import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
-import {MatDialog} from "@angular/material";
-import {TcRolesService} from "@tibco-tcstk/tc-liveapps-lib";
-import {SfContainerComponent} from "./sf-container.component";
+import {MatDialog} from '@angular/material';
+import {TcRolesService} from '@tibco-tcstk/tc-liveapps-lib';
+import {SfContainerComponent} from './sf-container.component';
 
 
 export interface sfDemo {
@@ -34,6 +34,11 @@ export interface sfDemo {
 })
 
 export class HomeCockpitComponent extends LiveAppsHomeCockpitComponent implements OnInit, AfterViewInit {
+
+  constructor(private resolver: ComponentFactoryResolver, protected buttonsHelper: TcButtonsHelperService, public dialog: MatDialog, protected rolesService: TcRolesService) {
+    super(buttonsHelper, dialog, rolesService);
+    this.incRefreshButton = false;
+  }
 
   /**
    * The Application ID of the UI (should ideally be unique as it is shared state key)
@@ -101,19 +106,10 @@ export class HomeCockpitComponent extends LiveAppsHomeCockpitComponent implement
    */
   @Output() routeAction: EventEmitter<RouteAction> = new EventEmitter<RouteAction>();
 
-  @ViewChild("spotfireContainer", {read: ViewContainerRef, static: false}) container;
+  @ViewChild('spotfireContainer', {read: ViewContainerRef, static: false}) container;
   componentRef: ComponentRef<SfContainerComponent>;
 
   selectedMarking = '';
-
-  ngOnInit() {
-    //super.ngOnInit();
-    //this.upDateSFComponent();
-  }
-
-  ngAfterViewInit(){
-    this.upDateSFComponent()
-  }
 
 
 
@@ -135,10 +131,10 @@ export class HomeCockpitComponent extends LiveAppsHomeCockpitComponent implement
     showStatusBar: false,
     showToolBar: true,
     showUndoRedo: false
-  }
+  };
 
-  sfServer = "https://demo.spotfire.cloud.tibco.com";
-  sfAnalysis = "/Public/Expense Analyzer Dashboard";
+  sfServer = 'https://demo.spotfire.cloud.tibco.com';
+  sfAnalysis = '/Public/Expense Analyzer Dashboard';
 
   sfDemos: sfDemo[] = [
     {location: '/Public/Expense Analyzer Dashboard', display: 'Expense Analyzer Dashboard'},
@@ -153,17 +149,22 @@ export class HomeCockpitComponent extends LiveAppsHomeCockpitComponent implement
     {location: '/Public/Price Elasticity of Grapes V14 - visuals 10', display: 'Price Elasticity of Grapes'}
   ];
 
-  sfMarkingOn = "*";
+  sfMarkingOn = '*';
   sfMarkingMaxRows = 1000;
 
-  sfCustomString = "";
+  sfCustomString = '';
 
-  constructor(private resolver: ComponentFactoryResolver, protected buttonsHelper: TcButtonsHelperService, public dialog: MatDialog, protected rolesService: TcRolesService) {
-    super(buttonsHelper, dialog, rolesService);
+  ngOnInit() {
+    // super.ngOnInit();
+    // this.upDateSFComponent();
+  }
+
+  ngAfterViewInit() {
+    this.upDateSFComponent();
   }
 
   upDateSFComponent() {
-    if(this.container) {
+    if (this.container) {
       this.container.clear();
     }
     const factory: ComponentFactory<SfContainerComponent> = this.resolver.resolveComponentFactory(SfContainerComponent);
@@ -173,8 +174,8 @@ export class HomeCockpitComponent extends LiveAppsHomeCockpitComponent implement
     this.componentRef.instance.sfAnalysis = this.sfAnalysis;
     this.componentRef.instance.sfMarkingOn = this.sfMarkingOn;
     this.componentRef.instance.sfMarkingMaxRows = this.sfMarkingMaxRows;
-    //this.componentRef.instance.outputMarking
-    //TODO: Add Marking
+    // this.componentRef.instance.outputMarking
+    // TODO: Add Marking
 
     this.sfCustomString = JSON.stringify(this.sfCustom);
     this.componentRef.instance.markingEvent.subscribe(event => {
@@ -184,7 +185,7 @@ export class HomeCockpitComponent extends LiveAppsHomeCockpitComponent implement
     });
   }
 
-  showJSON(){
+  showJSON() {
     alert(this.sfCustomString);
   }
 
