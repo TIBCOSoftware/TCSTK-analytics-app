@@ -34,7 +34,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeCockpitComponent } from './home-cockpit/home-cockpit.component';
 import { SfContainerComponent} from './home-cockpit/sf-container.component';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 /** This is the tc core configuration object
