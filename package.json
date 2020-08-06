@@ -55,7 +55,7 @@
     "@angular/compiler-cli": "^8.2.14",
     "@angular/language-service": "~8.2.14",
     "@tibco-tcstk/component-template": "^1.2.5",
-    "@types/node": "^12.12.53",
+    "@types/node": "^12.12.54",
     "codelyzer": "^5.2.2",
     "ts-node": "~8.5.2",
     "tslint": "~5.20.1",
