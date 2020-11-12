@@ -17,7 +17,7 @@ import {
   RouteAccessControlConfigurationElement
 } from '@tibco-tcstk/tc-liveapps-lib';
 import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
-import {MatDialog} from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 import {TcRolesService} from '@tibco-tcstk/tc-liveapps-lib';
 import {SfContainerComponent} from './sf-container.component';
 

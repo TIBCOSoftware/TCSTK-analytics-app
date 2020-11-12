@@ -219,23 +219,21 @@
                       </mat-checkbox>
                     </div>
                   </mat-grid-tile>
-                  <mat-grid-tile>
-                    <div class="text-inside-grid">
-                      <button [matTooltip]="getJSON()" matTooltipClass="test" mat-button (click)="showJSON()">Show
-                        JSON
-                      </button>
-                    </div>
-                  </mat-grid-tile>
                 </mat-grid-list>
                 <hr>
-                <h2 class="sfsettings-h2">Markings</h2>
-                <textarea matInput style="min-height: 200px ">{{selectedMarking}}</textarea>
+                <mat-tab-group>
+                  <mat-tab label="Markings">
+                    <textarea matInput style="min-height: 150px ">{{selectedMarking}}</textarea>
+                  </mat-tab>
+                  <mat-tab label="JSON">
+                    <textarea matInput style="min-height: 150px ">{{sfCustomString}}</textarea>
+                  </mat-tab>
+                </mat-tab-group>
               </mat-card-content>
             </mat-card>
-
-
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>

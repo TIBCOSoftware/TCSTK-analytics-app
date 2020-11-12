@@ -1,6 +1,6 @@
 import {HomeComponent} from '../../routes/home/home.component';
 import {
-  AuthGuard,
+
   ConfigurationMenuConfigResolver,
   GeneralConfigResolver,
   GeneralLandingPageConfigResolver,
@@ -13,7 +13,8 @@ import {
   LaConfigResolver,
   LiveAppsConfigResolver,  RoleActiveResolver,
   RoleGuard,
-  RolesResolver
+  RolesResolver,
+  AuthGuard
 } from '@tibco-tcstk/tc-liveapps-lib';
 import {SplashComponent} from '../../routes/splash/splash.component';
 import {CaseComponent} from '../../routes/case/case.component';

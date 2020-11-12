@@ -2,8 +2,7 @@ import {
   GeneralConfigResolver,
   TibcoCloudSettingsGeneralComponent,
   TibcoCloudSettingLandingComponent,
-  GeneralLandingPageConfigResolver,
-  AuthGuard
+  GeneralLandingPageConfigResolver
 } from '@tibco-tcstk/tc-core-lib';
 import {
   AllGroupsResolver,
@@ -17,7 +16,7 @@ import {
   AccessControlConfigurationResolver,
   LiveAppsSettingsAccessControlComponent,
   LiveAppsSettingsFormsComponent,
-  LiveAppsSettingsLandingComponent, RoleActiveResolver
+  LiveAppsSettingsLandingComponent, RoleActiveResolver,AuthGuard
 } from '@tibco-tcstk/tc-liveapps-lib';
 import {SettingsSpotfireComponent, SpotfireConfigResolver} from "@tibco-tcstk/tc-spotfire-lib";
 import {SplashComponent} from "../../../routes/splash/splash.component";
