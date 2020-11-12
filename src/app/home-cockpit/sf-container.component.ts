@@ -1,8 +1,4 @@
 import {Component, Input, EventEmitter, Output} from "@angular/core";
-import {trigger, style, animate, transition} from "@angular/animations";
-
-
-
 
 @Component({
   selector: "sfcontainer",
@@ -33,7 +29,6 @@ export class SfContainerComponent {
   @Input() sfAnalysis;
   @Input() sfMarkingOn;
   @Input() sfMarkingMaxRows;
-
 
   @Output() outputMarking;
   @Output() markingEvent = new EventEmitter();

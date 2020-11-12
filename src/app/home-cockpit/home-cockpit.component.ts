@@ -17,7 +17,7 @@ import {
   RouteAccessControlConfigurationElement
 } from '@tibco-tcstk/tc-liveapps-lib';
 import {CustomFormDefs} from '@tibco-tcstk/tc-forms-lib';
-import { MatDialog } from '@angular/material/dialog';
+import {MatDialog} from '@angular/material/dialog';
 import {TcRolesService} from '@tibco-tcstk/tc-liveapps-lib';
 import {SfContainerComponent} from './sf-container.component';
 
@@ -106,14 +106,13 @@ export class HomeCockpitComponent extends LiveAppsHomeCockpitComponent implement
    */
   @Output() routeAction: EventEmitter<RouteAction> = new EventEmitter<RouteAction>();
 
-  @ViewChild('spotfireContainer', { read: ViewContainerRef }) container;
-  componentRef: ComponentRef<SfContainerComponent>;
+  @ViewChild('spotfireContainer', {read: ViewContainerRef}) container;
 
-  selectedMarking = '';
+  public componentRef: ComponentRef<SfContainerComponent>;
 
+  public selectedMarking = '';
 
-
-  sfCustom = {
+  public sfCustom = {
     showAbout: false,
     showAnalysisInformationTool: false,
     showAuthor: false,
@@ -133,10 +132,10 @@ export class HomeCockpitComponent extends LiveAppsHomeCockpitComponent implement
     showUndoRedo: false
   };
 
-  sfServer = 'https://demo.spotfire.cloud.tibco.com';
-  sfAnalysis = '/Public/Race Car';
+  public sfServer = 'https://demo.spotfire.cloud.tibco.com';
+  public sfAnalysis = '/Public/Sales and Marketing';
 
-  sfDemos: sfDemo[] = [
+  public sfDemos: sfDemo[] = [
     {location: '/Public/Race Car', display: 'Race Car'},
     {location: '/Public/SDR Flights', display: 'Flights'},
     {location: '/Public/Airbnb Boston Listings', display: 'Airbnb Listings'},
@@ -151,19 +150,21 @@ export class HomeCockpitComponent extends LiveAppsHomeCockpitComponent implement
     {location: '/Public/Trade Areas', display: 'Trade Areas'},
     {location: '/Public/Oil & Gas Production Overview', display: 'Oil & Gas Production Overview'},
     {location: '/Public/Visitor Ratings at SFO Airport', display: 'Visitor Ratings at SFO Airport'},
-    {location: '/Public/SpotCoffee Demand Forecasting and Route Optimization', display: 'Coffee Demand Forecasting and Route Optimization'},
+    {
+      location: '/Public/SpotCoffee Demand Forecasting and Route Optimization',
+      display: 'Coffee Demand Forecasting and Route Optimization'
+    },
     {location: '/Public/California Drought Analysis - SFX', display: 'California Drought Analysis'},
     {location: '/Public/Price Elasticity of Grapes V14 - visuals 10', display: 'Price Elasticity of Grapes'}
   ];
 
-  sfMarkingOn = '*';
-  sfMarkingMaxRows = 1000;
+  public sfMarkingOn = '*';
+  public sfMarkingMaxRows = 1000;
 
-  sfCustomString = '';
+  public sfCustomString = '';
 
   ngOnInit() {
-    // super.ngOnInit();
-    // this.upDateSFComponent();
+    this.sfCustomString = JSON.stringify(this.sfCustom);
   }
 
   ngAfterViewInit() {
@@ -181,28 +182,16 @@ export class HomeCockpitComponent extends LiveAppsHomeCockpitComponent implement
     this.componentRef.instance.sfAnalysis = this.sfAnalysis;
     this.componentRef.instance.sfMarkingOn = this.sfMarkingOn;
     this.componentRef.instance.sfMarkingMaxRows = this.sfMarkingMaxRows;
-    // this.componentRef.instance.outputMarking
-    // TODO: Add Marking
-
     this.sfCustomString = JSON.stringify(this.sfCustom);
     this.componentRef.instance.markingEvent.subscribe(event => {
-      console.log('GOT',  event);
+      console.log('GOT', event);
       this.selectedMarking = JSON.stringify(event);
 
     });
   }
 
-  showJSON() {
-    alert(this.sfCustomString);
-  }
-
-  getJSON(): string {
-    return this.sfCustomString;
-  }
-
-
   selectionChanged(event) {
-    console.log(event);
+    console.log('CHANGE ', event);
     this.upDateSFComponent();
   }
 
