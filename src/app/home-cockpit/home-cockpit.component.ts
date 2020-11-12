@@ -106,7 +106,7 @@ export class HomeCockpitComponent extends LiveAppsHomeCockpitComponent implement
    */
   @Output() routeAction: EventEmitter<RouteAction> = new EventEmitter<RouteAction>();
 
-  @ViewChild('spotfireContainer', {read: ViewContainerRef, static: false}) container;
+  @ViewChild('spotfireContainer', { read: ViewContainerRef }) container;
   componentRef: ComponentRef<SfContainerComponent>;
 
   selectedMarking = '';
