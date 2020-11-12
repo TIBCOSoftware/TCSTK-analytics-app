@@ -134,9 +134,16 @@ export class HomeCockpitComponent extends LiveAppsHomeCockpitComponent implement
   };
 
   sfServer = 'https://demo.spotfire.cloud.tibco.com';
-  sfAnalysis = '/Public/Expense Analyzer Dashboard';
+  sfAnalysis = '/Public/Race Car';
 
   sfDemos: sfDemo[] = [
+    {location: '/Public/Race Car', display: 'Race Car'},
+    {location: '/Public/SDR Flights', display: 'Flights'},
+    {location: '/Public/Airbnb Boston Listings', display: 'Airbnb Listings'},
+    {location: '/Public/Oil Well Equipment Surveillance', display: 'Oil Well Equipment Surveillance'},
+    {location: '/Public/Live Wikipedia Edits', display: 'Live Wikipedia Edits'},
+    {location: '/Public/Dashboard - Telco X Campaign Analysis', display: 'Telco X Campaign Analysis'},
+    {location: '/Public/COVID19 Insights', display: 'COVID19 Insights'},
     {location: '/Public/Expense Analyzer Dashboard', display: 'Expense Analyzer Dashboard'},
     {location: '/Public/Sales and Marketing', display: 'Sales and Marketing'},
     {location: '/Public/Delivery Routing', display: 'Delivery Routing'},
