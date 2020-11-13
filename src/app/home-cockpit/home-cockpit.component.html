@@ -72,30 +72,30 @@
             <div class="tcs-header" fxLayout="row" fxLayoutAlign="space-between center">
               <div fxLayoutAlign="start center">
                 <mat-icon class="tcs-icon tcs-active-case-widget-icon" svgIcon="ic-active-case-widget-icon"></mat-icon>
-                <div class="tcs-header-text">Spotfire Settings</div>
+                <div class="tcs-header-text">Spotfire Configuration</div>
               </div>
             </div>
             <mat-card>
               <mat-card-content>
-                <h2 class="sfsettings-h2">Configuration</h2>
-                <hr>
                 <section class="sfsettings-form">
-                  <mat-form-field class="sfsettings-full-width">
-
+                  <mat-form-field class="sfsettings-full-width" appearance="fill">
+                    <mat-label>Spotfire Server</mat-label>
                     <input matInput placeholder="Spotfire Server" [(ngModel)]="sfServer"
                            (change)="selectionChanged($event)">
                   </mat-form-field>
-
                   <h3 class="sfsettings-h3">Select Example Analysis</h3>
-                  <mat-select [(ngModel)]="sfAnalysis" (selectionChange)="selectionChanged($event)">
-                    <mat-option *ngFor="let sfD of sfDemos" [value]="sfD.location">
-                      {{sfD.display}}
-                    </mat-option>
-                  </mat-select>
-
-                  <mat-form-field class="sfsettings-full-width">
-                    <textarea matInput placeholder="Analysis" [(ngModel)]="sfAnalysis"
-                              (change)="selectionChanged($event)"></textarea>
+                  <mat-form-field appearance="fill" style="width: 100%">
+                    <mat-label>Analysis</mat-label>
+                    <mat-select [(ngModel)]="sfAnalysis" (selectionChange)="selectionChanged($event)" >
+                      <mat-option *ngFor="let sfD of sfDemos" [value]="sfD.location">
+                        {{sfD.display}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <mat-form-field class="sfsettings-full-width" appearance="fill">
+                    <mat-label>Analysis Location</mat-label>
+                    <input matInput placeholder="Analysis Location" [(ngModel)]="sfAnalysis"
+                           (change)="selectionChanged($event)">
                   </mat-form-field>
                 </section>
 
@@ -219,23 +219,21 @@
                       </mat-checkbox>
                     </div>
                   </mat-grid-tile>
-                  <mat-grid-tile>
-                    <div class="text-inside-grid">
-                      <button [matTooltip]="getJSON()" matTooltipClass="test" mat-button (click)="showJSON()">Show
-                        JSON
-                      </button>
-                    </div>
-                  </mat-grid-tile>
                 </mat-grid-list>
                 <hr>
-                <h2 class="sfsettings-h2">Markings</h2>
-                <textarea matInput style="min-height: 200px ">{{selectedMarking}}</textarea>
+                <mat-tab-group>
+                  <mat-tab label="Markings">
+                    <textarea matInput style="min-height: 150px ">{{selectedMarking}}</textarea>
+                  </mat-tab>
+                  <mat-tab label="JSON for your Spotfire Component">
+                    <textarea matInput style="min-height: 150px ">{{sfCustomString}}</textarea>
+                  </mat-tab>
+                </mat-tab-group>
               </mat-card-content>
             </mat-card>
-
-
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
