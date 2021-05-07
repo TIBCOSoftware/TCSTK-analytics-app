@@ -15,5 +15,5 @@ This Pattern App is using some Services Offerings of the TIBCO Cloud™ Live App
 Also if the App should be hosted on TIBCO Cloud™, a TIBCO Cloud™ Live Apps Subscription is needed to upload the App to the Web Resource Provisioning Service.
 
 # License
-Copyright © 2020. TIBCO Software Inc.<br>
+Copyright © 2021. TIBCO Software Inc.<br>
 This file is subject to the license terms contained in the license file that is distributed with this file. Please see tpc.txt for details of license and dependent third party components referenced by this library.
