@@ -124,7 +124,7 @@ export class HomeCockpitComponent extends LiveAppsHomeCockpitComponent implement
     showFilterPanel: false,
     showHelp: true,
     showLogout: false,
-    showPageNavigation: false,
+    showPageNavigation: true,
     showAnalysisInfo: false,
     showReloadAnalysis: false,
     showStatusBar: false,
@@ -132,9 +132,14 @@ export class HomeCockpitComponent extends LiveAppsHomeCockpitComponent implement
     showUndoRedo: false
   };
 
-  public sfServer = 'https://demo.spotfire.cloud.tibco.com';
-  public sfAnalysis = '/Public/Sales and Marketing';
+  // TODO: Change this depending on your region
+  // US Region
+  // public sfServer = 'https://spotfire-next.cloud.tibco.com';
+  // Europe Region
+  public sfServer = 'https://eu.spotfire-next.cloud.tibco.com';
+  public sfAnalysis = '/Samples/Introduction to Spotfire';
 
+  /* PUBLIC DEMOS (Requires Authentication)
   public sfDemos: sfDemo[] = [
     {location: '/Public/Race Car', display: 'Race Car'},
     {location: '/Public/SDR Flights', display: 'Flights'},
@@ -156,6 +161,15 @@ export class HomeCockpitComponent extends LiveAppsHomeCockpitComponent implement
     },
     {location: '/Public/California Drought Analysis - SFX', display: 'California Drought Analysis'},
     {location: '/Public/Price Elasticity of Grapes V14 - visuals 10', display: 'Price Elasticity of Grapes'}
+  ];*/
+
+  // Demos from the TIBCO Cloud
+  public sfDemos: sfDemo[] = [
+    {location: '/Samples/Introduction to Spotfire', display: 'Introduction to Spotfire'},
+    {location: '/Samples/Configuring Advanced Visualizations', display: 'Configuring Advanced Visualizations'},
+    {location: '/Samples/Expense Analyzer Dashboard', display: 'Expense Analyzer Dashboard'},
+    {location: '/Samples/Sales and Marketing', display: 'Sales and Marketing'},
+    {location: '/Samples/Analyzing Stock Performance', display: 'Analyzing Stock Performance'}
   ];
 
   public sfMarkingOn = '*';

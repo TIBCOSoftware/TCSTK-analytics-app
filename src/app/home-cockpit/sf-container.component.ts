@@ -1,7 +1,7 @@
-import {Component, Input, EventEmitter, Output} from "@angular/core";
+import {Component, Input, EventEmitter, Output} from '@angular/core';
 
 @Component({
-  selector: "sfcontainer",
+  selector: 'sfcontainer',
   templateUrl: './sf-container.component.html',
 })
 export class SfContainerComponent {
@@ -17,13 +17,13 @@ export class SfContainerComponent {
     showFilterPanel: false,
     showHelp: true,
     showLogout: false,
-    showPageNavigation: false,
+    showPageNavigation: true,
     showAnalysisInfo: false,
     showReloadAnalysis: false,
     showStatusBar: false,
     showToolBar: false,
     showUndoRedo: false
-  }
+  };
 
   @Input() sfServer;
   @Input() sfAnalysis;
