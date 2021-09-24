@@ -1,5 +1,5 @@
-### Starters Toolkit for TIBCO Cloud™ - Analytics App
-TCSTK Pattern - Analytics App, is a sample that just connects TIBCO Cloud™ Spotfire.
+### TIBCO Cloud™ Composer - Analytics App
+Pattern - Analytics App, is a sample that just connects TIBCO Cloud™ Spotfire.
 
 The Pattern application **Analytics App**, contains the essentials to open a Spotfire Dashbord and take action. It is based on the Spotfire Implementation stored here, and known as [Spotfire Wrapper](https://github.com/TIBCOSoftware/spotfire-wrapper).
 
@@ -18,4 +18,4 @@ Also if the App should be hosted on TIBCO Cloud™, a TIBCO Cloud™ Live Apps S
 Copyright © 2021. TIBCO Software Inc.<br>
 This file is subject to the license terms contained in the license file that is distributed with this file. 
 
-Please see 'TIB_cloud-starters-toolkit_x.x.x_license'.pdf/.txt for details of license and dependent third party components referenced by this library.
+Please see 'TIB_cloud-composer_x.x.x_license'.pdf/.txt for details of license and dependent third party components referenced by this library.
